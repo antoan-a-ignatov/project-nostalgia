@@ -4,7 +4,7 @@ import { DropdownItem } from "../ui/dropdown/DropdownItem";
 import { MoreDotIcon } from "../../icons";
 import CountryMap from "./CountryMap";
 
-export default function DemographicCard() {
+export default function DemographicCard() { return null;
   const [isOpen, setIsOpen] = useState(false);
 
   function toggleDropdown() {
