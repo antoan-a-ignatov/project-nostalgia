@@ -1,16 +1,18 @@
-// Import Vite configuration helper
-import { defineConfig } from 'vite'
+import { defineConfig } from "vite";
+import react from "@vitejs/plugin-react";
+import svgr from "vite-plugin-svgr";
 
-// Import React plugin for Vite
-import react from '@vitejs/plugin-react'
-
-// Import Tailwind plugin for Vite
-import tailwindcss from '@tailwindcss/vite'
-
-// Export Vite configuration
+// https://vite.dev/config/
 export default defineConfig({
   plugins: [
     react(),
-    tailwindcss(),
+    svgr({
+      svgrOptions: {
+        icon: true,
+        // This will transform your SVG to a React component
+        exportType: "named",
+        namedExport: "ReactComponent",
+      },
+    }),
   ],
-})
+});
