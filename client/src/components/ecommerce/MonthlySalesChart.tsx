@@ -5,7 +5,7 @@ import { DropdownItem } from "../ui/dropdown/DropdownItem";
 import { MoreDotIcon } from "../../icons";
 import { useState } from "react";
 
-export default function MonthlySalesChart() {
+export default function MonthlySalesChart() { return null;
   const options: ApexOptions = {
     colors: ["#465fff"],
     chart: {

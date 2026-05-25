@@ -5,7 +5,7 @@ import flatpickr from "flatpickr";
 import ChartTab from "../common/ChartTab";
 import { CalenderIcon } from "../../icons";
 
-export default function StatisticsChart() {
+export default function StatisticsChart() { return null;
   const datePickerRef = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
