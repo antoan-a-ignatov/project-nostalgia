@@ -1,13 +1,13 @@
-import { useCallback, useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, /*useRef,*/ useState } from "react";
 import { Link, useLocation } from "react-router";
 
 // Assume these icons are imported from an icon library
 import {
   BoxCubeIcon,
   CalenderIcon,
-  ChevronDownIcon,
+//  ChevronDownIcon,
   GridIcon,
-  HorizontaLDots,
+//  HorizontaLDots,
   ListIcon,
   PageIcon,
   PieChartIcon,
@@ -100,10 +100,10 @@ const AppSidebar: React.FC = () => {
     type: "main" | "others";
     index: number;
   } | null>(null);
-  const [subMenuHeight, setSubMenuHeight] = useState<Record<string, number>>(
+  /*const [subMenuHeight, setSubMenuHeight] = useState<Record<string, number>>(
     {}
-  );
-  const subMenuRefs = useRef<Record<string, HTMLDivElement | null>>({});
+  ); 
+  const subMenuRefs = useRef<Record<string, HTMLDivElement | null>>({}); */
 
   // const isActive = (path: string) => location.pathname === path;
   const isActive = useCallback(
@@ -135,7 +135,7 @@ const AppSidebar: React.FC = () => {
     }
   }, [location, isActive]);
 
-  useEffect(() => {
+  /* useEffect(() => {
     if (openSubmenu !== null) {
       const key = `${openSubmenu.type}-${openSubmenu.index}`;
       if (subMenuRefs.current[key]) {
@@ -158,7 +158,7 @@ const AppSidebar: React.FC = () => {
       }
       return { type: menuType, index };
     });
-  };
+  }; */
 
   const renderMenuItems = (items: NavItem[], menuType: "main" | "others") => (
     <ul className="flex flex-col gap-4">

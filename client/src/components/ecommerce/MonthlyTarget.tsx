@@ -1,11 +1,12 @@
-import Chart from "react-apexcharts";
+/* import Chart from "react-apexcharts";
 import { ApexOptions } from "apexcharts";
 import { useState } from "react";
 import { Dropdown } from "../ui/dropdown/Dropdown";
 import { DropdownItem } from "../ui/dropdown/DropdownItem";
-import { MoreDotIcon } from "../../icons";
+import { MoreDotIcon } from "../../icons"; */
+import portrait from "../../assets/images/self-portrait-site-png.png";
 
-export default function MonthlyTarget() { return null;
+export default function MonthlyTarget() { /*return null;
   const series = [75.55];
   const options: ApexOptions = {
     colors: ["#465FFF"],
@@ -62,9 +63,46 @@ export default function MonthlyTarget() { return null;
 
   function closeDropdown() {
     setIsOpen(false);
-  }
+  } */
   return (
-    <div className="rounded-2xl border border-gray-200 bg-gray-100 dark:border-gray-800 dark:bg-white/[0.03]">
+  <div className="inline-block bg-gray-300 p-2 border-t-2 border-l-2 border-white border-r-2 border-b-2 border-r-gray-700 border-b-gray-700">
+    
+    <div className="flex items-center justify-between bg-blue-900 border border-black px-2 py-1 mb-4">
+      <span className="text-white font-bold text-sm">
+        EMPLOYEE_PROFILE.EXE
+      </span>
+
+      <div className="flex gap-1">
+        <button className="w-5 h-5 bg-gray-300 border border-black text-xs leading-none">
+          _
+        </button>
+
+        <button className="w-5 h-5 bg-gray-300 border border-black text-xs leading-none">
+          □
+        </button>
+
+        <a
+          href="https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="w-5 h-5 flex items-center justify-center bg-gray-300 border border-black text-xs leading-none"
+        >
+          X
+        </a>
+      </div>
+    </div>
+
+    <div className="w-fit flex items-center justify-center bg-gray-400 border-t-2 border-l-2 border-t-gray-700 border-l-gray-700 border-r-2 border-b-2 border-r-white border-b-white">
+      <img
+        src={portrait}
+        alt="Pixel portrait"
+        className="w-[320px] h-[320px] object-contain"
+        style={{ imageRendering: "pixelated" }}
+      />
+    </div>
+
+  </div>
+  /*  <div className="rounded-2xl border border-gray-200 bg-gray-100 dark:border-gray-800 dark:bg-white/[0.03]">
       <div className="px-5 pt-5 bg-white shadow-default rounded-2xl pb-11 dark:bg-gray-900 sm:px-6 sm:pt-6">
         <div className="flex justify-between">
           <div>
@@ -193,6 +231,6 @@ export default function MonthlyTarget() { return null;
           </p>
         </div>
       </div>
-    </div>
+    </div> */
   );
 }
