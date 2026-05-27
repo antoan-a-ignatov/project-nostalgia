@@ -33,26 +33,26 @@ const navItems: NavItem[] = [
   },
   {
     icon: <CalenderIcon />,
-    name: "Experience",
+    name: "Programs",
     /* path: "/calendar", */
   },
   {
     icon: <UserCircleIcon />,
-    name: "Certifications",
+    name: "Experience",
     /* path: "/profile", */
   },
   {
-    name: "Projects",
+    name: "Certifications",
     icon: <ListIcon />,
     subItems: [{ name: "Form Elements", path: "/form-elements", pro: false }],
   },
   {
-    name: "Hobbies",
+    name: "Projects",
     icon: <TableIcon />,
     subItems: [{ name: "Basic Tables", path: "/basic-tables", pro: false }],
   },
   {
-    name: "Search???",
+    name: "Hobbies",
     icon: <PageIcon />,
     subItems: [
       { name: "Blank Page", path: "/blank", pro: false },
