@@ -101,11 +101,11 @@ export default function RecentOrders() {
             </p>
 
             <p className="mb-2">
-              Cloud / DevOps Engineer
+              Cloud Administrator / DevOps Engineer
             </p>
 
             <p className="mb-2">
-              Azure, AWS, Lorem, Ipsum
+              Azure, EntraID, AWS, GitHub, Salesforce Marketing Cloud Intelligence
             </p>
 
             <p>
