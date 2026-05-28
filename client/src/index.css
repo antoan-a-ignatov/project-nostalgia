@@ -235,7 +235,7 @@
 }
 
 @utility menu-dropdown-item {
-  @apply relative flex items-center gap-2 px-2 py-1 text-[14px] text-black;
+  @apply relative flex items-center gap-2 px-2 py-1 text-[16px] text-black;
 }
 
 @utility menu-dropdown-item-active {

@@ -101,7 +101,7 @@ export default function RecentOrders() {
             </p>
 
             <p className="mb-2">
-              Cloud Administrator / DevOps Engineer
+               DevOps Engineer / Cloud Administrator
             </p>
 
             <p className="mb-2">
@@ -109,7 +109,7 @@ export default function RecentOrders() {
             </p>
 
             <p>
-              Building lorem ipsum experiences.
+              Building, mantaining and monitoring cloud-based solutions.
             </p>
           </div>
 
