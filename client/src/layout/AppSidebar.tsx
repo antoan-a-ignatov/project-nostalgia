@@ -10,7 +10,7 @@ import {
   //  HorizontaLDots,
   ListIcon,
   PageIcon,
-  PieChartIcon,
+  // PieChartIcon,
   PlugInIcon,
   TableIcon,
   UserCircleIcon,
@@ -126,7 +126,7 @@ const AppSidebar: React.FC = () => {
       const items = menuType === "main" ? navItems : othersItems;
       items.forEach((nav, index) => {
         if (nav.subItems) {
-          nav.subItems.forEach((subItem) => {
+          nav.subItems.forEach(() => {
             if (isActive()) {
               setOpenSubmenu({
                 type: menuType as "main" | "others",
@@ -248,10 +248,7 @@ const AppSidebar: React.FC = () => {
                   <li key={subItem.name}>
                     <Link
                       to={subItem.path}
-                      className={`menu-dropdown-item ${isActive(subItem.path)
-                          ? "menu-dropdown-item-active"
-                          : "menu-dropdown-item-inactive"
-                        }`}
+                      className="menu-dropdown-item menu-dropdown-item-inactive"
                     >
                       {subItem.name}
                     </Link>
