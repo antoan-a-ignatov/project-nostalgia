@@ -1,3 +1,4 @@
+/* PLACEHOLDER: --phone-wallpaper is a solid color until Antoan's phone wallpaper art. */
 /* Global design tokens and base styles. Component styles live in CSS Modules. */
 
 :root {
@@ -8,8 +9,9 @@
   --dark: #0a0a0a;
   --title-a: #000080;
   --title-b: #1084d0;
-  --title-inactive-a: #6b6b6b;
-  --title-inactive-b: #a0a0a0;
+  /* White title text keeps at least 4.5:1 contrast across the whole inactive gradient. */
+  --title-inactive-a: #5a5a5a;
+  --title-inactive-b: #767676;
   --select: #000080;
   --placeholder: #ffd800;
   /* PLACEHOLDER: phone wallpaper color, replaced by Antoan's art. */
@@ -76,7 +78,8 @@ button {
   color: inherit;
 }
 
+/* Win98-style dotted focus ring, 2px so it stays visible on every surface. */
 :focus-visible {
-  outline: 1px dotted #000;
+  outline: 2px dotted #000;
   outline-offset: -5px;
 }

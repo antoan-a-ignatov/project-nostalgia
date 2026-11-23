@@ -91,6 +91,10 @@
   overflow: auto;
 }
 
+.scroll:focus-visible {
+  outline-offset: -3px;
+}
+
 .portraitBody {
   flex: none;
 }

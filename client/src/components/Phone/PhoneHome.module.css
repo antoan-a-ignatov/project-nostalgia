@@ -229,3 +229,7 @@
   height: 100%;
   overflow: auto;
 }
+
+.scroll:focus-visible {
+  outline-offset: -3px;
+}
