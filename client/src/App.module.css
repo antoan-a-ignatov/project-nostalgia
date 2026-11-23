@@ -1,0 +1,7 @@
+.desktop {
+  position: fixed;
+  inset: 0 0 var(--taskbar-h) 0;
+  overflow: hidden;
+  background: #3a6ea5 url('./assets/Desktop-BG-XP-1.png') center / cover no-repeat;
+  image-rendering: pixelated;
+}
