@@ -1,0 +1,90 @@
+.portrait {
+  display: block;
+  width: 320px;
+  height: 320px;
+  image-rendering: pixelated;
+}
+
+.text {
+  padding: 14px 18px 18px;
+  font-size: 17px;
+  line-height: 1.55;
+}
+
+.text p,
+.text ul {
+  margin: 0 0 12px;
+}
+
+.text ul {
+  padding-left: 24px;
+}
+
+.text li + li {
+  margin-top: 6px;
+}
+
+.company {
+  margin: 26px 0 2px;
+  font-size: 20px;
+}
+
+.text > :first-child {
+  margin-top: 0;
+}
+
+.role {
+  margin: 16px 0 0;
+  font-size: 17px;
+}
+
+.text .dates {
+  margin: 0;
+  font-weight: bold;
+}
+
+.text .meta {
+  margin: 0 0 8px;
+  color: #3a3a3a;
+}
+
+.name {
+  margin: 0 0 8px;
+  font-size: 20px;
+}
+
+.tag {
+  display: inline-block;
+  padding: 0 4px;
+  background: var(--placeholder);
+  color: #000;
+  font-size: 11px;
+  font-weight: bold;
+  line-height: 18px;
+}
+
+.phBox {
+  padding: 16px;
+  border: 2px dashed #000;
+  background: #fffbe0;
+}
+
+.phBox p {
+  margin: 10px 0 0;
+}
+
+.credits {
+  margin: 10px 0 0;
+}
+
+.credits div {
+  margin-bottom: 10px;
+}
+
+.credits dt {
+  font-weight: bold;
+}
+
+.credits dd {
+  margin: 0;
+}
