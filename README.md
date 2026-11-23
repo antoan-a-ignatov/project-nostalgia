@@ -6,7 +6,18 @@ Live site: to be added.
 
 ## Status
 
-Under rebuild. The desktop has a taskbar with a live clock, a Start menu with submenus and keyboard support, and windows that drag, resize, minimize, maximize and close. Window text is not filled in yet.
+Under rebuild. The desktop has a taskbar with a live clock, a Start menu with submenus and keyboard support, and windows that drag, resize, minimize, maximize and close. Experience and About Me show the real text; certifications, projects and contact links are placeholders. The phone layout is not built yet.
+
+## Edit content
+
+All text lives in `client/src/content/`, separate from the components:
+
+- `experience.ts`: jobs and education for EXPERIENCE.TXT
+- `about.ts`: ABOUT_ME.NFO
+- `menu.ts`: Start menu entries, links and icons
+- `placeholderWindows.ts`, `credits.ts`: certification, project and credits windows
+- `windows.ts`: window titles
+- `ui.ts`: interface labels
 
 ## Run locally
 
