@@ -6,7 +6,7 @@ Live site: to be added.
 
 ## Status
 
-Under rebuild. The desktop has a taskbar with a live clock, a Start menu with submenus and keyboard support, and windows that drag, resize, minimize, maximize and close. Experience and About Me show the real text; certifications, projects and contact links are placeholders. The phone layout is not built yet.
+Under rebuild. The desktop has a taskbar with a live clock, a Start menu with submenus and keyboard support, and windows that drag, resize, minimize, maximize and close. Experience and About Me show the real text; certifications, projects and contact links are placeholders. Screens under 768px wide or 500px tall get a phone layout: a launcher list that opens each window full screen.
 
 ## Edit content
 
@@ -38,7 +38,7 @@ Other scripts, all run from `client/`:
 ## Project structure
 
 - `client/`: the Vite + React + TypeScript app. Vercel builds from this folder.
-- `client/src/components/`: taskbar, clock, Start menu and the window frame.
+- `client/src/components/`: taskbar, clock, Start menu, window frame and the phone layout.
 - `client/src/wm/`: window manager state as one pure reducer, with unit tests.
 - `client/src/content/`: all site text and the menu definition.
 - `client/src/icons/`: pixel icons stored as 16x16 character grids.

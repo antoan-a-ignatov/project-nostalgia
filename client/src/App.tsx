@@ -1,9 +1,11 @@
 import { useLayoutEffect, useReducer, useRef, useState } from 'react';
+import PhoneHome from './components/Phone/PhoneHome.tsx';
 import Taskbar, { type TaskButton } from './components/Taskbar/Taskbar.tsx';
 import Window from './components/Window/Window.tsx';
 import WindowBody from './components/WindowBody/WindowBody.tsx';
 import { UI } from './content/ui.ts';
 import { WINDOW_TITLES } from './content/windows.ts';
+import { useMediaQuery } from './hooks/useMediaQuery.ts';
 import { initialState, reduce, type Desk, type WmAction, type WmState } from './wm/windowManager.ts';
 import type { WindowId } from './wm/windowIds.ts';
 import styles from './App.module.css';
@@ -19,7 +21,17 @@ function appReducer(state: WmState | null, action: AppAction): WmState | null {
 const sameDesk = (a: Desk | null, b: Desk) =>
   a !== null && a.w === b.w && a.h === b.h && a.menuW === b.menuW && a.menuH === b.menuH;
 
+/** Phones and short landscape screens get the launcher layout instead of the desktop. */
+const PHONE_QUERY = '(max-width: 767px), (max-height: 499px)';
+
 export default function App() {
+  const isPhone = useMediaQuery(PHONE_QUERY);
+  return isPhone ? <PhoneHome /> : <Desktop />;
+}
+
+// Desktop window state lives in this component. Switching to the phone layout and back
+// starts the desktop fresh, the same as a reload.
+function Desktop() {
   const desktopRef = useRef<HTMLElement>(null);
   const menuRef = useRef<HTMLDivElement>(null);
   const [desk, setDesk] = useState<Desk | null>(null);
