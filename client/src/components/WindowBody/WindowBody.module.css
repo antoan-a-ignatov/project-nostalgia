@@ -1,0 +1,6 @@
+.portrait {
+  display: block;
+  width: 320px;
+  height: 320px;
+  image-rendering: pixelated;
+}

@@ -6,7 +6,7 @@ Live site: to be added.
 
 ## Status
 
-Under rebuild. The page shows the desktop, a taskbar with a live clock, and a Start menu with submenus and keyboard support. Windows are not wired up yet.
+Under rebuild. The desktop has a taskbar with a live clock, a Start menu with submenus and keyboard support, and windows that drag, resize, minimize, maximize and close. Window text is not filled in yet.
 
 ## Run locally
 
@@ -27,7 +27,8 @@ Other scripts, all run from `client/`:
 ## Project structure
 
 - `client/`: the Vite + React + TypeScript app. Vercel builds from this folder.
-- `client/src/components/`: taskbar, clock and Start menu.
+- `client/src/components/`: taskbar, clock, Start menu and the window frame.
+- `client/src/wm/`: window manager state as one pure reducer, with unit tests.
 - `client/src/content/`: all site text and the menu definition.
 - `client/src/icons/`: pixel icons stored as 16x16 character grids.
 - `client/src/assets/`: wallpaper and portrait.
