@@ -53,21 +53,12 @@
   color: #000;
 }
 
-.button:active:not([aria-disabled='true']) {
+.button:active {
   box-shadow: var(--pressed);
 }
 
-.button:active:not([aria-disabled='true']) svg {
+.button:active svg {
   transform: translate(1px, 1px);
-}
-
-/* Inert buttons: gray glyph with a white emboss. */
-.button[aria-disabled='true'] {
-  color: var(--shadow);
-}
-
-.button[aria-disabled='true'] svg {
-  filter: drop-shadow(1px 1px 0 var(--hi));
 }
 
 .button:focus-visible {

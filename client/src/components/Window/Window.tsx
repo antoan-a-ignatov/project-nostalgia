@@ -1,5 +1,7 @@
-import { useEffect, useRef, type PointerEvent, type ReactNode } from 'react';
+import { useEffect, useRef, type MouseEvent, type PointerEvent, type ReactNode } from 'react';
+import { EASTER_EGG } from '../../content/easterEgg.ts';
 import { UI } from '../../content/ui.ts';
+import { recordClick } from '../../wm/rapidClicks.ts';
 import { visibleRect, type Desk, type Rect, type ResizeDir, type WinState, type WmAction } from '../../wm/windowManager.ts';
 import { PORTRAIT_ID, type WindowId } from '../../wm/windowIds.ts';
 import styles from './Window.module.css';
@@ -32,6 +34,7 @@ export default function Window({ id, title, win, desk, active, zIndex, focusToke
   const gesture = useRef<Gesture | null>(null);
   const scrollRef = useRef<HTMLDivElement>(null);
   const minimizeRef = useRef<HTMLButtonElement>(null);
+  const closeClicks = useRef<number[]>([]);
   const isPortrait = id === PORTRAIT_ID;
   const titleId = `title-${id}`;
   const r = visibleRect(win, desk);
@@ -66,6 +69,13 @@ export default function Window({ id, title, win, desk, active, zIndex, focusToke
     onPointerUp: endGesture,
     onPointerCancel: endGesture,
     onLostPointerCapture: endGesture,
+  };
+
+  // Opens the hidden link only after a rapid burst of clicks on the portrait's Close button.
+  const onPortraitClose = (e: MouseEvent<HTMLButtonElement>) => {
+    const r = recordClick(closeClicks.current, e.timeStamp, EASTER_EGG.clicks, EASTER_EGG.withinMs);
+    closeClicks.current = r.times;
+    if (r.triggered) window.open(EASTER_EGG.url, '_blank', 'noopener,noreferrer');
   };
 
   const onTitlePointerDown = (e: PointerEvent<HTMLElement>) => {
@@ -105,15 +115,19 @@ export default function Window({ id, title, win, desk, active, zIndex, focusToke
         </button>
         {isPortrait ? (
           <>
-            {/* The portrait can't be maximized or closed: both buttons are shown but inert. */}
+            {/* The portrait can't be maximized or closed. Both buttons look like the others;
+                Maximize does nothing and Close only reacts to a rapid burst of clicks. */}
             <button type="button" className={styles.button} aria-label={UI.maximize} aria-disabled="true">
               <WindowButtonIcon name="maximize" />
             </button>
-            {/* <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank" rel="noopener noreferrer"> */}
-            <button type="button" className={`${styles.button} ${styles.close}`} aria-label={UI.close} aria-disabled="true">
+            <button
+              type="button"
+              className={`${styles.button} ${styles.close}`}
+              aria-label={UI.close}
+              onClick={onPortraitClose}
+            >
               <WindowButtonIcon name="close" />
             </button>
-            {/* </a> */}
           </>
         ) : (
           <>

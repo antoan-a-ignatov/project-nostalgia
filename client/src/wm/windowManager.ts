@@ -60,7 +60,8 @@ export const PORTRAIT_W = PORTRAIT_IMG + FRAME * 2;
 export const PORTRAIT_H = PORTRAIT_IMG + FRAME * 2 + TITLE_H + TITLE_GAP;
 export const CASCADE_STEP = 40;
 
-const START_TASKS: WindowId[] = ['experience', 'portrait', 'about'];
+// The portrait can't be closed, so its taskbar button stays first.
+const START_TASKS: WindowId[] = ['portrait', 'experience', 'about'];
 const START_ORDER: WindowId[] = ['portrait', 'about', 'experience'];
 
 const EXPERIENCE_MAX_W = 960;

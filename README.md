@@ -9,6 +9,7 @@ Live site: [antoan-portfolio.vercel.app](https://antoan-portfolio.vercel.app/)
 - Desktop (768px wide and 500px tall or more): a taskbar with a Start menu, a live clock in the visitor's locale, and windows that drag, resize (minimum 240x160), minimize, maximize and close. Opening windows one after another cascades them so every title bar stays visible, and nothing opens under the Start menu.
 - Phone (under 768px wide or under 500px tall): a home screen with the portrait and a launcher list. Each entry opens its window full screen.
 - Keyboard: the Start menu works with arrow keys, Home/End, Enter and Esc. Window buttons are labeled buttons, and opening a window moves focus into its text so it can be scrolled.
+- The portrait window can't be closed and its taskbar button is always first. Its Close button has a small easter egg for anyone who clicks it 5 times within 2 seconds.
 - No Microsoft assets. All icons are original 16x16 pixel drawings, and the font is the system stack (Tahoma, Verdana, sans-serif).
 
 ## Run locally
@@ -31,7 +32,8 @@ Other scripts, all run from `client/`:
 ## Project structure
 
 - `client/`: the Vite + React + TypeScript app. Vercel builds from this folder.
-- `client/src/wm/`: window manager state as one pure reducer, with 37 unit tests covering layout, Start menu avoidance, cascading, clamping, resizing and the portrait rules.
+- `client/src/wm/`: window manager state as one pure reducer, with 38 unit tests covering layout, Start menu avoidance, cascading, clamping, resizing and the portrait rules.
+- `client/vercel.json`: security headers (Content-Security-Policy that allows only same-origin scripts, styles, images and fonts and blocks framing, plus nosniff, Referrer-Policy and Permissions-Policy).
 - `client/src/components/`: taskbar, clock, Start menu, window frame and the phone layout. Styles are CSS Modules.
 - `client/src/content/`: all site text and the menu definition.
 - `client/src/icons/`: pixel icons stored as 16x16 character grids and rendered as inline SVG.
@@ -59,7 +61,7 @@ Content and art that are still placeholders are listed in [PLACEHOLDERS.md](PLAC
 
 ## Testing and known limits
 
-- Automated: unit tests for the window manager and the icon grids. The interface has no automated browser tests yet.
+- Automated: 54 unit tests for the window manager, the rapid-click detection and the icon grids. The interface has no automated browser tests yet.
 - Manual: checked in Chromium at 1920x1080, 1366x768, 1024x768, 375x812 and 812x375. Firefox, Safari, iOS Safari and Android Chrome have not been tested.
 - The portrait stays at 320 CSS pixels. On 125% or 150% display scaling its pixels are not an exact integer scale.
 - Screens narrower than 352px don't fit the portrait frame.

@@ -38,7 +38,7 @@ const overlapsMenu = (r: Rect, desk: Desk) => r.x < desk.menuW && r.y + r.h > de
 describe('start state', () => {
   it('opens Experience, the portrait and About Me with Experience active', () => {
     const s = initialState(FULL_HD);
-    expect(s.tasks).toEqual(['experience', 'portrait', 'about']);
+    expect(s.tasks).toEqual(['portrait', 'experience', 'about']);
     expect(s.order).toEqual(['portrait', 'about', 'experience']);
     expect(s.active).toBe('experience');
   });
@@ -106,6 +106,11 @@ describe('open, focus and close', () => {
     const s = reduce(start, { type: 'focus', id: 'portrait' });
     expect(s.order.at(-1)).toBe('portrait');
     expect(s.active).toBe('portrait');
+  });
+
+  it('keeps the portrait first on the taskbar while other windows open and close', () => {
+    const s = run(initialState(FULL_HD), { type: 'close', id: 'experience' }, open('credits'), open('experience'));
+    expect(s.tasks[0]).toBe('portrait');
   });
 
   it('removes a closed window from the taskbar and activates the top visible one', () => {
