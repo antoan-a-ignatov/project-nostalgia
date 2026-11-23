@@ -2,7 +2,7 @@
 
 A one-page personal site for recruiters and interviewers, styled as a minimalist take on a Windows 98 desktop. It shows my experience, a short profile and links in draggable windows on a pixel art wallpaper.
 
-Live site: to be added.
+Live site: [antoan-portfolio.vercel.app](https://antoan-portfolio.vercel.app/)
 
 ## What it does
 

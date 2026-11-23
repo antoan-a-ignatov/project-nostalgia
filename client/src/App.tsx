@@ -69,6 +69,16 @@ function Desktop() {
     requestFocus(id);
   };
 
+  // Closing or minimizing removes the focused button from view, so focus moves on to the
+  // window that becomes active instead of falling back to the page.
+  const windowDispatch = (action: WmAction) => {
+    dispatch(action);
+    if (wm && (action.type === 'close' || action.type === 'minimize')) {
+      const next = reduce(wm, action).active;
+      if (next) requestFocus(next);
+    }
+  };
+
   const onTaskClick = (id: WindowId) => {
     const wasMinimized = wm?.wins[id]?.minimized;
     dispatch({ type: 'taskbar', id });
@@ -100,7 +110,7 @@ function Desktop() {
                 active={wm.active === id}
                 zIndex={wm.order.indexOf(id) + 1}
                 focusToken={focusRequest.id === id ? focusRequest.token : 0}
-                dispatch={dispatch}
+                dispatch={windowDispatch}
               >
                 <WindowBody id={id} />
               </Window>

@@ -31,12 +31,14 @@ interface Gesture {
 export default function Window({ id, title, win, desk, active, zIndex, focusToken, dispatch, children }: WindowProps) {
   const gesture = useRef<Gesture | null>(null);
   const scrollRef = useRef<HTMLDivElement>(null);
+  const minimizeRef = useRef<HTMLButtonElement>(null);
   const isPortrait = id === PORTRAIT_ID;
   const titleId = `title-${id}`;
   const r = visibleRect(win, desk);
 
+  // The portrait has no scrollable content, so its Minimize button takes focus instead.
   useEffect(() => {
-    if (focusToken > 0) scrollRef.current?.focus({ preventScroll: true });
+    if (focusToken > 0) (scrollRef.current ?? minimizeRef.current)?.focus({ preventScroll: true });
   }, [focusToken]);
 
   const beginGesture = (e: PointerEvent<HTMLElement>, dir: ResizeDir | null) => {
@@ -93,6 +95,7 @@ export default function Window({ id, title, win, desk, active, zIndex, focusToke
           {title}
         </span>
         <button
+          ref={minimizeRef}
           type="button"
           className={styles.button}
           aria-label={UI.minimize}
